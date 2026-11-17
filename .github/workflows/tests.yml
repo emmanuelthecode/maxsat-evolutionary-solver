@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Spec examples
+        run: |
+          test "$(python maxsat.py -question 1 -clause '0.5 2 1 -3 -4 0' -assignment 0000)" = 1
+          test "$(python maxsat.py -question 2 -wdimacs examples/example.wcnf -assignment 0001)" = 2

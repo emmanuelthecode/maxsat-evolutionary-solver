@@ -1,5 +1,7 @@
 # MAXSAT with an Evolutionary Algorithm
 
+[![tests](https://github.com/emmanuelthecode/maxsat-evolutionary-solver/actions/workflows/tests.yml/badge.svg)](https://github.com/emmanuelthecode/maxsat-evolutionary-solver/actions/workflows/tests.yml) ![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white) ![Docker](https://img.shields.io/badge/docker-ready-2496ED?logo=docker&logoColor=white) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 Given a Boolean formula in CNF, MAXSAT asks for the truth assignment that satisfies as many clauses as possible. It's NP-hard, so instead of an exact solver this project uses a time-limited **genetic algorithm** and then looks at which of its parameters actually matter.
 
 Built for Lab 2 of the Evolutionary Computation module at the University of Birmingham (2025). The solver is a single dependency-free Python file and runs inside the module's Docker marking image.
